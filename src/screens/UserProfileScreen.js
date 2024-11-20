@@ -52,7 +52,7 @@ export default function UserProfileScreen() {
         setFiles(response.data.files)
         if (response.data.files.length > 0) {
           setUserName(response.data.files[0].clientname)
-          setEmail(response.data.files[0].clientemail) // Replace with actual email from API
+          setEmail(response.data.files[0].clientemail) 
         }
       } else {
         console.error("Failed to fetch files", response)
@@ -105,11 +105,15 @@ export default function UserProfileScreen() {
                 </div>
               </div>
               <button
-                onClick={() => navigate("/")}
-                className="bg-white text-blue-600 px-4 py-2 rounded-full font-semibold hover:bg-blue-50 transition duration-300"
-              >
-                Logout
-              </button>
+  onClick={() => {
+    localStorage.clear();
+    navigate("/");
+  }}
+  className="bg-white text-blue-600 px-4 py-2 rounded-full font-semibold hover:bg-blue-50 transition duration-300"
+>
+  Logout
+</button>
+
             </div>
           </div>
           <div className="p-6">
