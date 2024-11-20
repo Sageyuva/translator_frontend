@@ -56,7 +56,7 @@ export default function HomePage() {
       }
     } catch (error) {
       setLoading(false);
-      console.error('Error uploading file:', error.response ? error.response.data : error.message);
+      console.log('Error uploading file:', error.response ? error.response.data : error.message);
       alert('Error uploading file. Please try again later.');
     }
   };
@@ -124,8 +124,8 @@ export default function HomePage() {
                 <a href="#pricing" className="font-semibold block px-3 py-2 text-gray-700 hover:text-indigo-600">Pricing</a>
                 {isLoggedIn ? (
                   <>
-                    <a href="#" className="block px-3 py-2 text-gray-700 font-semibold hover:text-indigo-600">Profile</a>
-                    <a href="#" className="block px-3 py-2 text-gray-700 font-semibold hover:text-indigo-600">Dashboard</a>
+                    <button onClick={()=> navigate('/user')}  className="block px-3 py-2 text-gray-700 font-semibold hover:text-indigo-600" >Profile</button>
+                    
                   </>
                 ) : (
                   <button
